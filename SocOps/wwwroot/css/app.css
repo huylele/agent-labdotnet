@@ -6,8 +6,11 @@ body,
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: 'MS Sans Serif', Tahoma, sans-serif;
     -webkit-tap-highlight-color: transparent;
+    background-color: #008080; /* Win95 Teal Desktop */
+    -webkit-font-smoothing: none;
+    font-smooth: never;
 }
 
 /* Tailwind-like utility classes */
@@ -91,12 +94,55 @@ body {
 .border-amber-400 { border-color: #fbbf24; }
 .border-marked-border { border-color: #22c55e; }
 
-.rounded { border-radius: 0.25rem; }
-.rounded-lg { border-radius: 0.5rem; }
-.rounded-xl { border-radius: 0.75rem; }
+/* Win95 Variables & Classes */
+.bg-win-gray { background-color: #c0c0c0; }
+.bg-win-blue { background-color: #000080; }
+.bg-win-teal { background-color: #008080; }
+.text-win-white { color: #ffffff; }
+.text-win-black { color: #000000; }
 
-.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
-.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+.border-outset { 
+    box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #000, inset 2px 2px #fff, inset -2px -2px #808080; 
+}
+.border-inset { 
+    box-shadow: inset 1px 1px #000, inset -1px -1px #fff, inset 2px 2px #808080, inset -2px -2px #dfdfdf; 
+}
+
+.window {
+    background-color: #c0c0c0;
+    box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #000, inset 2px 2px #fff, inset -2px -2px #808080;
+    padding: 2px;
+}
+.window-title {
+    background-color: #000080;
+    color: white;
+    padding: 2px 4px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.win-btn {
+    background-color: #c0c0c0;
+    box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #000, inset 2px 2px #fff, inset -2px -2px #808080;
+    color: black;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.win-btn:active {
+    box-shadow: inset 1px 1px #000, inset -1px -1px #fff, inset 2px 2px #808080, inset -2px -2px #dfdfdf;
+    padding-top: 5px; /* Slight shift down to simulate press */
+    padding-bottom: 3px;
+    padding-left: 9px;
+    padding-right: 7px;
+}
+
+.rounded { border-radius: 0; }
+.rounded-lg { border-radius: 0; }
+.rounded-xl { border-radius: 0; }
+
+.shadow-sm { box-shadow: none; }
+.shadow-xl { box-shadow: 4px 4px 0px rgba(0,0,0,0.5); }
 
 .space-y-2 > * + * { margin-top: 0.5rem; }
 

@@ -1,14 +1,20 @@
 <div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-    <div class="bg-white rounded-xl p-6 max-w-xs w-full text-center shadow-xl animate-[bounce_0.5s_ease-out]">
-        <div class="text-5xl mb-4">🎉</div>
-        <h2 class="text-3xl font-bold text-amber-500 mb-2">BINGO!</h2>
-        <p class="text-gray-600 mb-6">You completed a line!</p>
+    <div class="window max-w-xs w-full shadow-xl animate-[bounce_0.5s_ease-out]">
+        <div class="window-title">
+            <span>Information</span>
+            <button class="win-btn p-1 px-2 text-xs" style="min-height:unset" @onclick="OnDismiss">X</button>
+        </div>
+        <div class="p-6 bg-win-gray text-center flex flex-col items-center">
+            <div class="text-5xl mb-4">🏆</div>
+            <h2 class="text-3xl font-bold text-win-blue mb-2">BINGO!</h2>
+            <p class="text-win-black mb-6">You completed a line.</p>
 
-        <button
-            @onclick="OnDismiss"
-            class="w-full bg-accent text-white font-semibold py-3 px-6 rounded-lg active:bg-accent-light transition-colors">
-            Keep Playing
-        </button>
+            <button
+                @onclick="OnDismiss"
+                class="win-btn font-bold py-2 px-6">
+                OK
+            </button>
+        </div>
     </div>
 </div>
 

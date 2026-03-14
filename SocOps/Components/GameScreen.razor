@@ -1,36 +1,47 @@
 @using SocOps.Models
 
-<div class="flex flex-col min-h-full bg-gray-50">
-    <!-- Header -->
-    <header class="flex items-center justify-between p-3 bg-white border-b border-gray-200">
-        <button
-            @onclick="OnReset"
-            class="text-gray-500 text-sm px-3 py-1.5 rounded active:bg-gray-100">
-            ← Back
-        </button>
-        <h1 class="font-bold text-gray-900">Soc Ops</h1>
-        <div class="w-16"></div>
-    </header>
-
-    <!-- Instructions -->
-    <p class="text-center text-gray-500 text-sm py-2 px-4">
-        Tap a square when you find someone who matches it.
-    </p>
-
-    <!-- Bingo indicator -->
-    @if (HasBingo)
-    {
-        <div class="bg-amber-100 text-amber-800 text-center py-2 font-semibold text-sm">
-            🎉 BINGO! You got a line!
+<div class="flex flex-col items-center min-h-full p-3">
+    <div class="window w-full max-w-md flex flex-col h-full">
+        <!-- Title Bar -->
+        <div class="window-title">
+            <span>SocOps_Game.exe</span>
+            <button class="win-btn p-1 px-2 text-xs" style="min-height:unset" @onclick="OnReset">X</button>
         </div>
-    }
 
-    <!-- Board -->
-    <div class="flex-1 flex items-center justify-center p-3">
-        <BingoBoard
-            Board="@Board"
-            WinningSquareIds="@WinningSquareIds"
-            OnSquareClick="@OnSquareClick" />
+        <div class="flex-1 flex flex-col bg-win-gray p-2">
+            <!-- Header Controls -->
+            <header class="flex items-center justify-between mb-3">
+                <button
+                    @onclick="OnReset"
+                    class="win-btn text-sm font-bold">
+                    ← Restart
+                </button>
+                <div class="border-inset bg-white px-2 py-1 flex-1 mx-2 text-center text-sm font-bold">
+                    System ready.
+                </div>
+            </header>
+
+            <!-- Instructions -->
+            <p class="text-center text-win-black text-sm mb-2 border-inset bg-white py-1">
+                Tap a square when you find someone who matches it.
+            </p>
+
+            <!-- Bingo indicator -->
+            @if (HasBingo)
+            {
+                <div class="mb-2 border-outset bg-win-blue text-win-white text-center py-2 font-bold animate-[bounce_0.5s_ease-out]">
+                    *** BINGO! SYSTEM OVERRIDE ***
+                </div>
+            }
+
+            <!-- Board -->
+            <div class="flex-1 flex items-center justify-center mt-2">
+                <BingoBoard
+                    Board="@Board"
+                    WinningSquareIds="@WinningSquareIds"
+                    OnSquareClick="@OnSquareClick" />
+            </div>
+        </div>
     </div>
 </div>
 
